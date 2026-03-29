@@ -13,3 +13,5 @@ env = { LOG_LEVEL = "INFO", AGENT_LLM = "gemini/gemini-2.0-flash", OPENAI_API_KE
 domain = "mock"
 num_tasks = 1
 user_llm = "gemini/gemini-2.0-flash"
+
+# OpenClaw benchmark seed
