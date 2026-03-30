@@ -1,0 +1,37 @@
+[green_agent]
+agentbeats_id = "019cf80f-8938-79c0-a221-4c7eadd43e7e"
+env = { LOG_LEVEL = "INFO", OPENAI_API_KEY = "${OPENAI_API_KEY}", GEMINI_API_KEY = "${GEMINI_API_KEY}", DEEPSEEK_API_KEY = "${DEEPSEEK_API_KEY}", OPENROUTER_API_KEY = "${OPENROUTER_API_KEY}" }
+
+[[participants]]
+agentbeats_id = "019d3af1-7b7a-70d1-bd8e-5e6d5b1f2ecd"
+name = "agent"
+env = { LOG_LEVEL = "INFO", AGENT_LLM = "openrouter/stepfun/step-3.5-flash:free", OPENAI_API_KEY = "${OPENAI_API_KEY}", GEMINI_API_KEY = "${GEMINI_API_KEY}", DEEPSEEK_API_KEY = "${DEEPSEEK_API_KEY}", OPENROUTER_API_KEY = "${OPENROUTER_API_KEY}" }
+
+[config]
+domain = "mock"
+num_tasks = 1
+user_llm = "openrouter/stepfun/step-3.5-flash:free"
+
+# OpenClaw benchmark seed
+
+# OpenClaw benchmark trigger 2
+
+# OpenClaw post-enable trigger 1774849464
+
+# OpenClaw image refresh 1774851216
+
+# OpenClaw corrective loop 1774862119
+
+# OpenClaw deepseek resubmit 1774862119
+
+# OpenClaw secrets refresh rerun 1774863330
+
+# OpenClaw gemini rerun 1774864020
+
+# OpenClaw openrouter free rerun 1774864500
+
+# OpenClaw card-tags rerun 1774865100
+
+# OpenClaw jsonrpc rerun 1774865700
+
+# OpenClaw deterministic-planner rerun 1774866600
