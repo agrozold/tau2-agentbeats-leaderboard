@@ -5,12 +5,12 @@ env = { LOG_LEVEL = "INFO", OPENAI_API_KEY = "${OPENAI_API_KEY}", GEMINI_API_KEY
 [[participants]]
 agentbeats_id = "019d3af1-7b7a-70d1-bd8e-5e6d5b1f2ecd"
 name = "agent"
-env = { LOG_LEVEL = "INFO", AGENT_LLM = "gemini/gemini-2.0-flash", OPENAI_API_KEY = "${OPENAI_API_KEY}", GEMINI_API_KEY = "${GEMINI_API_KEY}", DEEPSEEK_API_KEY = "${DEEPSEEK_API_KEY}" }
+env = { LOG_LEVEL = "INFO", AGENT_LLM = "deepseek/deepseek-chat", OPENAI_API_KEY = "${OPENAI_API_KEY}", GEMINI_API_KEY = "${GEMINI_API_KEY}", DEEPSEEK_API_KEY = "${DEEPSEEK_API_KEY}" }
 
 [config]
 domain = "mock"
 num_tasks = 1
-user_llm = "gemini/gemini-2.0-flash"
+user_llm = "deepseek/deepseek-chat"
 
 # OpenClaw benchmark seed
 
@@ -21,3 +21,5 @@ user_llm = "gemini/gemini-2.0-flash"
 # OpenClaw image refresh 1774851216
 
 # OpenClaw corrective loop 1774862119
+
+# OpenClaw deepseek resubmit 1774862119
