@@ -43,3 +43,5 @@ user_llm = "openrouter/stepfun/step-3.5-flash:free"
 # OpenClaw required-args rerun 1774872600
 
 # OpenClaw schema-normalize rerun 1774867207
+
+# OpenClaw heuristic-priority rerun 1774873500
