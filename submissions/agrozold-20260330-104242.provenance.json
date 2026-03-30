@@ -1,0 +1,17 @@
+{
+  "image_digests": {
+    "green-agent": "ghcr.io/rdi-foundation/tau2-agentbeats@sha256:c5d731aefb3d0feaf9258931257c2839eaed8446f1d03bfa7e6823a15b0b9f7a",
+    "agent": "ghcr.io/agrozold/openclaw-purple-agent@sha256:619796e4a1b82f1ee4224133a715e82a3ac193fa9b872c1e6e78be64f695b29a",
+    "agentbeats-client": "ghcr.io/agentbeats/agentbeats-client@sha256:13dfe3ef4e583a80e7ce2fe3becd0ce3b879841368a7f4fa40b6ebbabeeb014e"
+  },
+  "timestamp": "2026-03-30T10:42:42Z",
+  "github_actions": {
+    "run_url": "https://github.com/agrozold/tau2-agentbeats-leaderboard/actions/runs/23740614593",
+    "run_logs_url": "https://api.github.com/repos/agrozold/tau2-agentbeats-leaderboard/actions/runs/23740614593/logs",
+    "ref": "refs/heads/openclaw-first-run",
+    "sha": "5e839032918e38b171cc6e11c4d7758cd9588549",
+    "repository_url": "https://github.com/agrozold/tau2-agentbeats-leaderboard",
+    "workflow_ref": "agrozold/tau2-agentbeats-leaderboard/.github/workflows/run-scenario.yml@refs/heads/openclaw-first-run",
+    "workflow_sha": "5e839032918e38b171cc6e11c4d7758cd9588549"
+  }
+}
