@@ -1,11 +1,9 @@
 [green_agent]
-# agentbeats_id = ""
-image = "ghcr.io/rdi-foundation/tau2-agentbeats:latest"
+agentbeats_id = "019cf80f-8938-79c0-a221-4c7eadd43e7e"
 env = { LOG_LEVEL = "INFO", OPENAI_API_KEY = "${OPENAI_API_KEY}", GEMINI_API_KEY = "${GEMINI_API_KEY}", DEEPSEEK_API_KEY = "${DEEPSEEK_API_KEY}" }
 
 [[participants]]
 agentbeats_id = "019d3af1-7b7a-70d1-bd8e-5e6d5b1f2ecd"
-image = "ghcr.io/agrozold/openclaw-purple-agent:latest"
 name = "agent"
 env = { LOG_LEVEL = "INFO", AGENT_LLM = "gemini/gemini-2.0-flash", OPENAI_API_KEY = "${OPENAI_API_KEY}", GEMINI_API_KEY = "${GEMINI_API_KEY}", DEEPSEEK_API_KEY = "${DEEPSEEK_API_KEY}" }
 

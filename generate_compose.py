@@ -28,6 +28,8 @@ except ImportError:
 
 
 AGENTBEATS_API_URL = "https://agentbeats.dev/api/agents"
+PROGRAM_IMAGE_RE = re.compile(r'program\s*:\s*\{.*?\bimage\s*:\s*"([^"]+)"', re.DOTALL)
+GENERIC_IMAGE_RE = re.compile(r'\bimage\s*:\s*"([^"]+)"')
 
 
 def fetch_agent_info(agentbeats_id: str) -> dict:
@@ -46,6 +48,39 @@ def fetch_agent_info(agentbeats_id: str) -> dict:
     except requests.exceptions.RequestException as e:
         print(f"Error: Request failed for agent {agentbeats_id}: {e}")
         sys.exit(1)
+
+
+def extract_program_image(manifest_text: str) -> str | None:
+    """Extract the primary container image from an Amber manifest."""
+    match = PROGRAM_IMAGE_RE.search(manifest_text)
+    if match:
+        return match.group(1)
+
+    match = GENERIC_IMAGE_RE.search(manifest_text)
+    if match:
+        return match.group(1)
+
+    return None
+
+
+def resolve_manifest_image(manifest_url: str, agentbeats_id: str) -> str:
+    """Resolve a container image from an Amber manifest URL."""
+    try:
+        response = requests.get(manifest_url, timeout=30)
+        response.raise_for_status()
+    except requests.exceptions.HTTPError as e:
+        print(f"Error: Failed to fetch Amber manifest for agent {agentbeats_id}: {e}")
+        sys.exit(1)
+    except requests.exceptions.RequestException as e:
+        print(f"Error: Request failed for Amber manifest {manifest_url}: {e}")
+        sys.exit(1)
+
+    image = extract_program_image(response.text)
+    if image:
+        return image
+
+    print(f"Error: Amber manifest for agent {agentbeats_id} does not expose a program image")
+    sys.exit(1)
 
 
 COMPOSE_PATH = "docker-compose.yml"
@@ -130,7 +165,14 @@ def resolve_image(agent: dict, name: str) -> None:
         print(f"Using {name} image: {agent['image']}")
     elif has_id:
         info = fetch_agent_info(agent["agentbeats_id"])
-        agent["image"] = info["docker_image"]
+        image = info.get("docker_image")
+        if not image:
+            manifest_url = info.get("amber_manifest_url")
+            if not manifest_url:
+                print(f"Error: Agent {agent['agentbeats_id']} has neither docker_image nor amber_manifest_url")
+                sys.exit(1)
+            image = resolve_manifest_image(manifest_url, agent["agentbeats_id"])
+        agent["image"] = image
         print(f"Resolved {name} image: {agent['image']}")
     else:
         print(f"Error: {name} must have either 'image' or 'agentbeats_id' field")
