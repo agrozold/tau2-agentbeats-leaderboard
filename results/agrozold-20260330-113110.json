@@ -1,0 +1,17 @@
+{
+  "participants": {
+    "agent": "019d3af1-7b7a-70d1-bd8e-5e6d5b1f2ecd"
+  },
+  "results": [
+    {
+      "domain": "mock",
+      "score": 1.0,
+      "max_score": 1,
+      "pass_rate": 100.0,
+      "task_rewards": {
+        "create_task_1": 1.0
+      },
+      "time_used": 18.28330159187317
+    }
+  ]
+}
